@@ -1,8 +1,14 @@
-#1er Documentacion Proyecto VPN CASERA 
+# 1era Documentacion - Proyecto VPN CASERA 
 
-##Descripcion 
+## ## Descripcion 
 Implementación de una Red Privada Virtual (VPN) con el protocolo WireGuard.
-Utilizando la nube de AWS con los recursos gratuitos, se desplego una instancia virtual con SO Ubuntu.
+Utilizando la nube de AWS con los recursos gratuitos, desplegando una instancia virtual con SO Ubuntu.
 Se implemento Criptografía Asimétrica para que el servidor y el cliente se reconozcan mediante llaves públicas y privadas.
-Los beneficios son educativos y practicos, como la de Documentacion de proyecto,implementacion de VPN, practica en la nube.
+Los beneficios son educativos y practicos, como la de Documentacion de proyecto, implementacion de VPN, practica en la nube.
+
+## ## Arquitectura y flujo de datos
+Aqui el flujo de los datos va completamente cifrado, empezando por el origen hacia el destino por medio de la MV (utilizada como Servidor) que estara 24/7 prendida, implementando en este los protocolos de WireGuard para consolidar la VPN. 
+
+[ Mobile / Client Host (IP: 10.7.0.2) ] ──> ( Encrypted UDP Tunnel / Port 51820 )──> [ AWS EC2 Instance (Ubuntu Server) ] ──> [ Clean Internet Egress (AWS Public IP) ]
+
 
