@@ -35,4 +35,3 @@ peer: [LLAVE_PÚBLICA_DEL_CELULAR_OCULTA]
   allowed ips: 10.7.0.2/32
   latest handshake: 45 seconds ago
   transfer: 2.19 MiB received, 14.66 MiB sent
-```bash
