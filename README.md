@@ -14,10 +14,11 @@ Aqui el flujo de los datos va completamente cifrado, empezando por el origen hac
 ## ## El Principio del Menor Privilegio
 El firewall esta configurado con la política de Denegación Implícita, todo el trafico entrante de internet esta bloqueado, exepto los 2 unicos puertos necesarios para el realizado de la VPN.
 
-Puerto    Protocolo    Servicio     Direccion   Origen
- 22         TCP           SSH        Salida     0.0.0.0/0
-51820       UDP        WireGuard     Salida     0.0.0.0/0
-Todos     Todos        Cualquiera    Entrante   0.0.0.0/0
+| Puerto | Protocolo | Servicio | Dirección | Origen |
+| :---: | :---: | :---: | :---: | :---: |
+| **22** | TCP | SSH | Entrada (Ingress) | `0.0.0.0/0` |
+| **51820** | UDP | WireGuard | Entrada (Ingress) | `0.0.0.0/0` |
+| **Todos** | Todos | Cualquiera | Salida (Egress) | `0.0.0.0/0` |
 
 Esto esta configurado con Criptografia Asimetrica, desactivando la autenticacion con contraseña, para que solo sea accesible con el archivo .pem.
 Utilizacion de UDP para WireGuard para evitar TCP Meltdown.
