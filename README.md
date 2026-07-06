@@ -11,4 +11,13 @@ Aqui el flujo de los datos va completamente cifrado, empezando por el origen hac
 
 [ Mobile / Client Host (IP: 10.7.0.2) ] ──> ( Encrypted UDP Tunnel / Port 51820 )──> [ AWS EC2 Instance (Ubuntu Server) ] ──> [ Clean Internet Egress (AWS Public IP) ]
 
+## ## El Principio del Menor Privilegio
+El firewall esta configurado con la política de Denegación Implícita, todo el trafico entrante de internet esta bloqueado, exepto los 2 unicos puertos necesarios para el realizado de la VPN.
 
+Puerto    Protocolo    Servicio     Direccion   Origen
+ 22         TCP           SSH        Salida     0.0.0.0/0
+51820       UDP        WireGuard     Salida     0.0.0.0/0
+Todos     Todos        Cualquiera    Entrante   0.0.0.0/0
+
+Esto esta configurado con Criptografia Asimetrica, desactivando la autenticacion con contraseña, para que solo sea accesible con el archivo .pem.
+Utilizacion de UDP para WireGuard para evitar TCP Meltdown.
